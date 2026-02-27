@@ -5,49 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gumaan Shopzz</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
   scroll-behavior:smooth;
 }
 
 body{
-  background:#fdf6ec;
-  color:#3e3e3e;
+  font-family:'Inter',sans-serif;
+  background:linear-gradient(135deg,#fff9e6,#ffe8a3);
+  color:#333;
+  overflow:hidden;
 }
 
-/* NAVBAR */
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:#ffffffcc;
-  backdrop-filter:blur(10px);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 8%;
-  z-index:1000;
+/* Animated glow circles */
+.glow{
+  position:absolute;
+  width:350px;
+  height:350px;
+  background:#ffd84d;
+  border-radius:50%;
+  filter:blur(140px);
+  animation:float 8s infinite alternate ease-in-out;
 }
 
-nav h2{
-  font-weight:800;
+.glow:nth-child(1){top:-120px;left:-120px;}
+.glow:nth-child(2){bottom:-120px;right:-120px;}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  100%{transform:translateY(40px);}
 }
 
-nav a{
-  text-decoration:none;
-  margin-left:20px;
-  color:#3e3e3e;
-  font-weight:600;
-}
-
-/* HOME SECTION */
-.home{
+.container{
   height:100vh;
   display:flex;
   flex-direction:column;
@@ -55,64 +49,43 @@ nav a{
   align-items:center;
   text-align:center;
   padding:20px;
-  position:relative;
-  overflow:hidden;
 }
 
-/* Animated background blobs */
-.blob{
-  position:absolute;
-  width:300px;
-  height:300px;
-  background:#e8dcc7;
-  border-radius:50%;
-  filter:blur(120px);
-  animation:float 8s infinite alternate ease-in-out;
-  z-index:-1;
-}
-
-.blob:nth-child(1){top:-100px;left:-100px;}
-.blob:nth-child(2){bottom:-100px;right:-100px;}
-
-@keyframes float{
-  0%{transform:translateY(0px);}
-  100%{transform:translateY(40px);}
-}
-
-.home h1{
-  font-size:55px;
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:60px;
   font-weight:800;
-  margin-bottom:15px;
+  margin-bottom:20px;
 }
 
-.home p{
+p{
   font-size:18px;
-  margin-bottom:30px;
-  color:#666;
+  margin-bottom:35px;
+  color:#555;
 }
 
 .btn{
-  padding:14px 30px;
-  border:none;
+  padding:14px 35px;
   border-radius:40px;
-  cursor:pointer;
+  border:none;
   font-weight:600;
   font-size:16px;
+  cursor:pointer;
   margin:10px;
   transition:0.3s;
 }
 
-.primary{
-  background:#3e3e3e;
+.enter{
+  background:#000;
   color:#fff;
 }
 
-.primary:hover{
-  background:#000;
+.enter:hover{
+  background:#222;
 }
 
 .discord{
-  background:#000;
+  background:#111;
   color:#fff;
   display:flex;
   align-items:center;
@@ -123,111 +96,24 @@ nav a{
   width:20px;
 }
 
-/* SHOP SECTION */
-.shop-section{
-  padding:100px 8%;
-}
-
-.shop-section h2{
-  text-align:center;
-  font-size:40px;
-  margin-bottom:50px;
-}
-
-.shop{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-
-.card{
-  background:#fff;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-  transition:0.3s;
-  text-align:center;
-}
-
-.card:hover{
-  transform:translateY(-10px);
-}
-
-.card h3{
-  font-size:22px;
-  margin-bottom:15px;
-}
-
-.price{
-  font-size:22px;
-  font-weight:600;
-  margin-bottom:20px;
-  color:#000;
-}
-
-.features{
-  list-style:none;
-  margin-bottom:20px;
-  font-size:14px;
-  color:#666;
-}
-
-.features li{
-  margin:8px 0;
-}
-
-.buy{
-  padding:12px 25px;
-  border:none;
-  border-radius:30px;
-  background:#3e3e3e;
-  color:#fff;
-  font-weight:600;
-  cursor:pointer;
-}
-
-.buy:hover{
-  background:#000;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:30px;
-  color:#777;
-  font-size:14px;
-}
-
-/* MOBILE */
 @media(max-width:768px){
-  .home h1{font-size:35px;}
-  .shop-section h2{font-size:30px;}
+  h1{font-size:38px;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav>
-  <h2>Gumaan Shopzz</h2>
-  <div>
-    <a href="#">Home</a>
-    <a href="#shop">Shop</a>
-  </div>
-</nav>
+<div class="glow"></div>
+<div class="glow"></div>
 
-<!-- HOME -->
-<section class="home">
-  <div class="blob"></div>
-  <div class="blob"></div>
-
+<div class="container">
   <h1>Gumaan Shopzz</h1>
-  <p>Premium Nitro & MCFA Packages Available</p>
+  <p>Luxury Nitro & MCFA Packages</p>
 
-  <a href="#shop">
-    <button class="btn primary">Enter Shop</button>
-  </a>
+  <button class="btn enter" onclick="location.href='shop.html'">
+    Enter Shop
+  </button>
 
   <a href="https://discord.gg/8yUdqJeemU" target="_blank">
     <button class="btn discord">
@@ -235,60 +121,7 @@ footer{
       Join Discord
     </button>
   </a>
-</section>
-
-<!-- SHOP -->
-<section class="shop-section" id="shop">
-  <h2>Shop Packages</h2>
-
-  <div class="shop">
-
-    <div class="card">
-      <h3>Basic Nitro</h3>
-      <div class="price">$1.74 - 1 Month</div>
-      <ul class="features">
-        <li>Discord Basic Nitro</li>
-        <li>1 Month Access</li>
-      </ul>
-      <button class="buy">Buy Now</button>
-    </div>
-
-    <div class="card">
-      <h3>Nitro Boost</h3>
-      <div class="price">$3.4 - 1 Month</div>
-      <ul class="features">
-        <li>Full Nitro Boost</li>
-        <li>HD Streaming</li>
-      </ul>
-      <button class="buy">Buy Now</button>
-    </div>
-
-    <div class="card">
-      <h3>MCFA Lifetime</h3>
-      <div class="price">$1.2 - Lifetime</div>
-      <ul class="features">
-        <li>Permanent License</li>
-        <li>All Features</li>
-      </ul>
-      <button class="buy">Buy Now</button>
-    </div>
-
-    <div class="card">
-      <h3>MCFA 1 Month</h3>
-      <div class="price">$0.05 - 1 Month</div>
-      <ul class="features">
-        <li>Full Access</li>
-        <li>30 Days License</li>
-      </ul>
-      <button class="buy">Buy Now</button>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  © 2026 Gumaan Shopzz. All Rights Reserved.
-</footer>
+</div>
 
 </body>
 </html>
