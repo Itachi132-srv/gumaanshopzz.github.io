@@ -3,55 +3,135 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premium Shop</title>
+<title>Gumaan Shopzz</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
-
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Orbitron',sans-serif;
+  font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
 }
 
 body{
-  background:#0f0f0f;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:100vh;
-  overflow-x:hidden;
+  background:#fdf6ec;
+  color:#3e3e3e;
 }
 
-/* Animated Background */
-body::before{
-  content:"";
+/* NAVBAR */
+nav{
   position:fixed;
-  width:200%;
-  height:200%;
-  background:radial-gradient(circle at center, #00ffcc33, transparent 60%);
-  animation:bgMove 8s linear infinite;
+  top:0;
+  width:100%;
+  background:#ffffffcc;
+  backdrop-filter:blur(10px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 8%;
+  z-index:1000;
+}
+
+nav h2{
+  font-weight:800;
+}
+
+nav a{
+  text-decoration:none;
+  margin-left:20px;
+  color:#3e3e3e;
+  font-weight:600;
+}
+
+/* HOME SECTION */
+.home{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Animated background blobs */
+.blob{
+  position:absolute;
+  width:300px;
+  height:300px;
+  background:#e8dcc7;
+  border-radius:50%;
+  filter:blur(120px);
+  animation:float 8s infinite alternate ease-in-out;
   z-index:-1;
 }
 
-@keyframes bgMove{
-  0%{transform:rotate(0deg);}
-  100%{transform:rotate(360deg);}
+.blob:nth-child(1){top:-100px;left:-100px;}
+.blob:nth-child(2){bottom:-100px;right:-100px;}
+
+@keyframes float{
+  0%{transform:translateY(0px);}
+  100%{transform:translateY(40px);}
 }
 
-.container{
-  width:95%;
-  max-width:1200px;
+.home h1{
+  font-size:55px;
+  font-weight:800;
+  margin-bottom:15px;
+}
+
+.home p{
+  font-size:18px;
+  margin-bottom:30px;
+  color:#666;
+}
+
+.btn{
+  padding:14px 30px;
+  border:none;
+  border-radius:40px;
+  cursor:pointer;
+  font-weight:600;
+  font-size:16px;
+  margin:10px;
+  transition:0.3s;
+}
+
+.primary{
+  background:#3e3e3e;
+  color:#fff;
+}
+
+.primary:hover{
+  background:#000;
+}
+
+.discord{
+  background:#000;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.discord img{
+  width:20px;
+}
+
+/* SHOP SECTION */
+.shop-section{
+  padding:100px 8%;
+}
+
+.shop-section h2{
   text-align:center;
-}
-
-h1{
-  color:#00ffcc;
-  margin-bottom:40px;
   font-size:40px;
-  letter-spacing:3px;
-  text-shadow:0 0 15px #00ffcc;
+  margin-bottom:50px;
 }
 
 .shop{
@@ -60,159 +140,155 @@ h1{
   gap:30px;
 }
 
-/* Card Design */
 .card{
-  background:#111;
+  background:#fff;
+  padding:30px;
   border-radius:20px;
-  padding:30px 20px;
-  position:relative;
-  overflow:hidden;
-  border:1px solid #222;
-  transition:0.4s ease;
-}
-
-.card::before{
-  content:"";
-  position:absolute;
-  top:-50%;
-  left:-50%;
-  width:200%;
-  height:200%;
-  background:linear-gradient(45deg,#00ffcc,#00ff88,#00ffcc);
-  animation:rotate 4s linear infinite;
-  z-index:0;
-}
-
-@keyframes rotate{
-  0%{transform:rotate(0deg);}
-  100%{transform:rotate(360deg);}
-}
-
-.card::after{
-  content:"";
-  position:absolute;
-  inset:3px;
-  background:#111;
-  border-radius:18px;
-  z-index:1;
-}
-
-.card-content{
-  position:relative;
-  z-index:2;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:0.3s;
+  text-align:center;
 }
 
 .card:hover{
   transform:translateY(-10px);
-  box-shadow:0 0 25px #00ffcc;
 }
 
-.card h2{
-  color:#00ffcc;
-  margin-bottom:15px;
+.card h3{
   font-size:22px;
+  margin-bottom:15px;
 }
 
 .price{
-  color:#fff;
-  font-size:26px;
+  font-size:22px;
+  font-weight:600;
   margin-bottom:20px;
+  color:#000;
 }
 
 .features{
   list-style:none;
-  margin-bottom:25px;
-  color:#aaa;
+  margin-bottom:20px;
   font-size:14px;
+  color:#666;
 }
 
 .features li{
   margin:8px 0;
 }
 
-button{
+.buy{
   padding:12px 25px;
   border:none;
   border-radius:30px;
-  background:#00ffcc;
-  color:#000;
-  font-weight:bold;
+  background:#3e3e3e;
+  color:#fff;
+  font-weight:600;
   cursor:pointer;
-  transition:0.3s;
 }
 
-button:hover{
-  background:#00cc99;
-  box-shadow:0 0 15px #00ffcc;
+.buy:hover{
+  background:#000;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#777;
+  font-size:14px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .home h1{font-size:35px;}
+  .shop-section h2{font-size:30px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-<h1>PREMIUM SHOP</h1>
-
-<div class="shop">
-
-<!-- Nitro Basic -->
-<div class="card">
-  <div class="card-content">
-    <h2>Nitro Basic</h2>
-    <div class="price">Rs 499</div>
-    <ul class="features">
-      <li>Basic Boost</li>
-      <li>Speed Upgrade</li>
-      <li>Priority Access</li>
-    </ul>
-    <button>Buy Now</button>
+<!-- NAV -->
+<nav>
+  <h2>Gumaan Shopzz</h2>
+  <div>
+    <a href="#">Home</a>
+    <a href="#shop">Shop</a>
   </div>
-</div>
+</nav>
 
-<!-- Nitro Boost -->
-<div class="card">
-  <div class="card-content">
-    <h2>Nitro Boost</h2>
-    <div class="price">Rs 999</div>
-    <ul class="features">
-      <li>Ultra Boost</li>
-      <li>VIP Access</li>
-      <li>Special Badge</li>
-    </ul>
-    <button>Buy Now</button>
+<!-- HOME -->
+<section class="home">
+  <div class="blob"></div>
+  <div class="blob"></div>
+
+  <h1>Gumaan Shopzz</h1>
+  <p>Premium Nitro & MCFA Packages Available</p>
+
+  <a href="#shop">
+    <button class="btn primary">Enter Shop</button>
+  </a>
+
+  <a href="https://discord.gg/8yUdqJeemU" target="_blank">
+    <button class="btn discord">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png">
+      Join Discord
+    </button>
+  </a>
+</section>
+
+<!-- SHOP -->
+<section class="shop-section" id="shop">
+  <h2>Shop Packages</h2>
+
+  <div class="shop">
+
+    <div class="card">
+      <h3>Basic Nitro</h3>
+      <div class="price">$1.74 - 1 Month</div>
+      <ul class="features">
+        <li>Discord Basic Nitro</li>
+        <li>1 Month Access</li>
+      </ul>
+      <button class="buy">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <h3>Nitro Boost</h3>
+      <div class="price">$3.4 - 1 Month</div>
+      <ul class="features">
+        <li>Full Nitro Boost</li>
+        <li>HD Streaming</li>
+      </ul>
+      <button class="buy">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <h3>MCFA Lifetime</h3>
+      <div class="price">$1.2 - Lifetime</div>
+      <ul class="features">
+        <li>Permanent License</li>
+        <li>All Features</li>
+      </ul>
+      <button class="buy">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <h3>MCFA 1 Month</h3>
+      <div class="price">$0.05 - 1 Month</div>
+      <ul class="features">
+        <li>Full Access</li>
+        <li>30 Days License</li>
+      </ul>
+      <button class="buy">Buy Now</button>
+    </div>
+
   </div>
-</div>
+</section>
 
-<!-- MCFA 15 Days -->
-<div class="card">
-  <div class="card-content">
-    <h2>MCFA 15 Days</h2>
-    <div class="price">Rs 799</div>
-    <ul class="features">
-      <li>Full Features</li>
-      <li>Premium Tools</li>
-      <li>Limited Time Access</li>
-    </ul>
-    <button>Buy Now</button>
-  </div>
-</div>
-
-<!-- MCFA Lifetime -->
-<div class="card">
-  <div class="card-content">
-    <h2>MCFA Lifetime</h2>
-    <div class="price">Rs 2499</div>
-    <ul class="features">
-      <li>All Features</li>
-      <li>Lifetime Access</li>
-      <li>Future Updates Free</li>
-    </ul>
-    <button>Buy Now</button>
-  </div>
-</div>
-
-</div>
-</div>
+<footer>
+  © 2026 Gumaan Shopzz. All Rights Reserved.
+</footer>
 
 </body>
 </html>
