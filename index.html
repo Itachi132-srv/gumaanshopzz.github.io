@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Shop</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Orbitron',sans-serif;
+}
+
+body{
+  background:#0f0f0f;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* Animated Background */
+body::before{
+  content:"";
+  position:fixed;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle at center, #00ffcc33, transparent 60%);
+  animation:bgMove 8s linear infinite;
+  z-index:-1;
+}
+
+@keyframes bgMove{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+.container{
+  width:95%;
+  max-width:1200px;
+  text-align:center;
+}
+
+h1{
+  color:#00ffcc;
+  margin-bottom:40px;
+  font-size:40px;
+  letter-spacing:3px;
+  text-shadow:0 0 15px #00ffcc;
+}
+
+.shop{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+/* Card Design */
+.card{
+  background:#111;
+  border-radius:20px;
+  padding:30px 20px;
+  position:relative;
+  overflow:hidden;
+  border:1px solid #222;
+  transition:0.4s ease;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  top:-50%;
+  left:-50%;
+  width:200%;
+  height:200%;
+  background:linear-gradient(45deg,#00ffcc,#00ff88,#00ffcc);
+  animation:rotate 4s linear infinite;
+  z-index:0;
+}
+
+@keyframes rotate{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  background:#111;
+  border-radius:18px;
+  z-index:1;
+}
+
+.card-content{
+  position:relative;
+  z-index:2;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 25px #00ffcc;
+}
+
+.card h2{
+  color:#00ffcc;
+  margin-bottom:15px;
+  font-size:22px;
+}
+
+.price{
+  color:#fff;
+  font-size:26px;
+  margin-bottom:20px;
+}
+
+.features{
+  list-style:none;
+  margin-bottom:25px;
+  color:#aaa;
+  font-size:14px;
+}
+
+.features li{
+  margin:8px 0;
+}
+
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:#00ffcc;
+  color:#000;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#00cc99;
+  box-shadow:0 0 15px #00ffcc;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>PREMIUM SHOP</h1>
+
+<div class="shop">
+
+<!-- Nitro Basic -->
+<div class="card">
+  <div class="card-content">
+    <h2>Nitro Basic</h2>
+    <div class="price">Rs 499</div>
+    <ul class="features">
+      <li>Basic Boost</li>
+      <li>Speed Upgrade</li>
+      <li>Priority Access</li>
+    </ul>
+    <button>Buy Now</button>
+  </div>
+</div>
+
+<!-- Nitro Boost -->
+<div class="card">
+  <div class="card-content">
+    <h2>Nitro Boost</h2>
+    <div class="price">Rs 999</div>
+    <ul class="features">
+      <li>Ultra Boost</li>
+      <li>VIP Access</li>
+      <li>Special Badge</li>
+    </ul>
+    <button>Buy Now</button>
+  </div>
+</div>
+
+<!-- MCFA 15 Days -->
+<div class="card">
+  <div class="card-content">
+    <h2>MCFA 15 Days</h2>
+    <div class="price">Rs 799</div>
+    <ul class="features">
+      <li>Full Features</li>
+      <li>Premium Tools</li>
+      <li>Limited Time Access</li>
+    </ul>
+    <button>Buy Now</button>
+  </div>
+</div>
+
+<!-- MCFA Lifetime -->
+<div class="card">
+  <div class="card-content">
+    <h2>MCFA Lifetime</h2>
+    <div class="price">Rs 2499</div>
+    <ul class="features">
+      <li>All Features</li>
+      <li>Lifetime Access</li>
+      <li>Future Updates Free</li>
+    </ul>
+    <button>Buy Now</button>
+  </div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
